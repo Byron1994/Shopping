@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Shopping.Data.Entities.Country>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Paises</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Crear Nuevo</a>
+</p>
+<table class="table table-stripped table-responsive table-hover" id="mi_tabla">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-danger" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" class="btn btn-warning" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@section Scripts{
+
+    <script>
+
+       $(document).ready(function () {
+           
+            $('#mi_tabla').DataTable();
+        });
+
+    </script>
+    
+}

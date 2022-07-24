@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Shopping.Data.Entities.Country>
+
+<h1>Ejemplo de Index</h1>
+
+<ul>
+    @foreach (var item in Model) 
+    {
+    
+        <li>
+            @Html.DisplayFor(mi_item=>item.Name)
+        </li>
+    }
+</ul>
